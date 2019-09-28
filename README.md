@@ -4,13 +4,13 @@ DB設計
 
 |Column|Type|Options|
 |------|----|-------|
-|name|integer|null: false|
+|name|string|null: false|
 |email|string|null: false|
 
 ### Association
 - has_many :chats
 - has_many :group_members
-- has_many :groups throhgh :group_members
+- has_many :groups through, :group_members
 ## groupテーブル
 
 |Column|Type|Options|
@@ -20,7 +20,7 @@ DB設計
 ### Association
 - has_many :chats
 - has_many :group_members
-- has_many :users throhgh :group_members
+- has_many :users through, :group_members
 
 ## group_memberテーブル
 
