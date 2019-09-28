@@ -10,7 +10,7 @@ DB設計
 ### Association
 - has_many :chats
 - has_many :group_members
-- has_many :groups through, :group_members
+- has_many :groups, through :group_members
 ## groupテーブル
 
 |Column|Type|Options|
@@ -20,7 +20,7 @@ DB設計
 ### Association
 - has_many :chats
 - has_many :group_members
-- has_many :users through, :group_members
+- has_many :users, through :group_members
 
 ## group_memberテーブル
 
