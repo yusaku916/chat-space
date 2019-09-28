@@ -15,7 +15,7 @@ DB設計
 
 |Column|Type|Options|
 |------|----|-------|
-|groupname|string|null: false, foreign_key: true|
+|name|string|null: false|
 
 ### Association
 - has_many :chats
@@ -37,7 +37,8 @@ DB設計
 
 |Column|Type|Options|
 |------|----|-------|
-|chat|text|null: false|
+|chat|text||
+|picture|blob||
 |user_id|integer|null: false, foreign_key: true|
 |group_id|integer|null: false, foreign_key: true|
 
