@@ -31,9 +31,9 @@
       メッセージ
     .main__input
       %section.message
-      %form.message_form{:action => ""}
-      %input.type_a_message{:name => "message", :placeholder => "type a message", :type => "text"}/
+      %form.message_form{action: ""}
+      %input.type_a_message{name: "message", placeholder: "type a message", type: "text"}/
       %label.image
         = fa_icon 'image', class: 'icon'
         %input.file_form{type: 'file'}
-      %input.send{:type => "submit", :value => "Send"}/
+      %input.send{type: "submit", value: "Send"}/
