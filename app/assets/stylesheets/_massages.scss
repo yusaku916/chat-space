@@ -1,0 +1,128 @@
+.header {
+  display: flex;
+  height: 100px;
+  &__user {
+    width: 265px;
+    color: $textWhiteColor;
+    padding: 0 15px 0 20px;
+    text-align: left;
+    background-color: #253141;
+    font-size: 16px;
+    font-weight:  bold;
+    line-height: 100px;
+    float: left;
+  }
+  &__icon{
+    letter-spacing: 5px;
+    float: right;
+    color: $textWhiteColor;
+  }
+  &__group {
+    flex: 1;
+    width: calc(100vw - 300px);
+    padding: 35px 40px 0;
+    border-bottom: solid 1px #eeeeee;
+    &__name{
+      font-size: 20px;
+      color: #333333;
+    }
+    &__member{
+      margin-top: 15px;
+      float: left;
+      font-size: 12px;
+      color: $lightTextColor;
+    }
+  }
+  &__edit{
+    margin-top: 28px;
+    border: solid 1px $buttonBlueColor;
+    height: 40px;
+    padding:0 20px;
+    text-align: right;
+    line-height: 40px;
+    position: absolute;
+    right: 40px;
+    &__link{
+      text-decoration: none;
+      color: $buttonBlueColor;
+    }
+    }
+}
+
+.main{
+  display: flex;
+  height: calc(100vh - 100px);
+  &__left{
+    background-color: #2f3e51;
+    color: $textWhiteColor;
+    width: 260px;
+    padding: 20px 20px 0;
+    text-align: left;
+    &__join_group{
+      font-size: 15px;
+      margin-bottom: 5px;
+    }
+    &__message{
+      font-size: 11px;
+      margin-bottom: 40px;
+    }
+  }
+  
+  &__chat{
+    padding: 46px 40px 0;
+    flex: 1;
+    width: calc(100vw - 300px);
+    background-color: #fafafa;
+    &__send{
+      &__user{
+        float: left;
+        font-size: 16px;
+        font-weight:  bold;
+        padding-right: 10px;
+      }
+      &__date{
+        font-size: 12px;
+        color: $lightTextColor;
+      }
+    }
+  }
+  &__message{
+    font-size: 14px;
+    padding:10px 0 40px;
+  }
+  &__input{
+    width: calc(100vw - 300px);
+    position: absolute;
+    bottom: 0;
+    height: 90px;
+    background-color: #ddd;
+    line-height: 90px;
+    margin: 0 -40px;
+    padding:0 40px;
+    .type_a_message{
+    z-index: 0;
+    padding: 0 10px;
+    height: 50px;
+    width: calc(100% - 220px);
+    }
+    .image{
+    position: absolute;
+    left: calc(100vw - 490px);
+    z-index: 1;
+    font-size: 1.3rem;
+    }
+    .file_form{
+      display: none;
+    }
+    .send{
+    z-index: 0;
+    display: inline-block;
+    padding: 0 30px;
+    margin-left: 10px;
+    height: 50px;
+    width: 100px;
+    background-color: $buttonBlueColor;
+    color: $textWhiteColor;
+    }
+  }
+}
