@@ -1,0 +1,39 @@
+.header
+  .header__user
+    ユーザー名
+    =link_to "", class: "header__icon" do
+      = fa_icon 'cog'
+      %span<>
+    =link_to "", class: "header__icon" do
+      = fa_icon 'edit'
+      %span<>
+  .header__group
+    .header__group__name
+      グループ名
+    .header__group__member
+      Member:
+  .header__edit
+    =link_to "",  class: "header__edit__link" do
+      Edit
+.main
+  .main__left
+    .main__left__join_group
+      参加グループ
+    .main__left__message
+      メッセージ
+  .main__chat
+    .main__chat__send
+      .main__chat__send__user
+        送信者
+      .main__chat__send__date
+        2019/09/29(Sun) 15:47:54
+    .main__message
+      メッセージ
+    .main__input
+      %section.message
+      %form.message_form{action: ""}
+      %input.type_a_message{name: "message", placeholder: "type a message", type: "text"}/
+      %label.image
+        = fa_icon 'image', class: 'icon'
+        %input.file_form{type: 'file'}
+      %input.send{type: "submit", value: "Send"}/
