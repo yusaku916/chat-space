@@ -46,25 +46,29 @@
       text-decoration: none;
       color: $buttonBlueColor;
     }
-    }
+  }
 }
+
 
 .main{
   display: flex;
   height: calc(100vh - 100px);
   &__left{
     background-color: #2f3e51;
-    color: $textWhiteColor;
     width: 260px;
     padding: 20px 20px 0;
     text-align: left;
-    &__join_group{
-      font-size: 15px;
-      margin-bottom: 5px;
-    }
-    &__message{
-      font-size: 11px;
-      margin-bottom: 40px;
+    &__link{
+      text-decoration: none;
+      color: $textWhiteColor;
+      &__join_group{
+        font-size: 15px;
+        margin-bottom: 5px;
+      }
+      &__message{
+        font-size: 11px;
+        margin-bottom: 40px;
+      }
     }
   }
   
