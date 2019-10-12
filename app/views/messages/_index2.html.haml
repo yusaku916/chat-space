@@ -23,19 +23,3 @@
           = group.name
         .main__left__link__message
           メッセージはまだありません
-  .main__chat
-    .main__chat__send
-      .main__chat__send__user
-        送信者
-      .main__chat__send__date
-        2019/09/29(Sun) 15:47:54
-    .main__message
-      メッセージ
-    .main__input
-      %section.message
-      %form.message_form{action: ""}
-      %input.type_a_message{name: "message", placeholder: "type a message", type: "text"}/
-      %label.image
-        = fa_icon 'image', class: 'icon'
-        %input.file_form{type: 'file'}
-      %input.send{type: "submit", value: "Send"}/

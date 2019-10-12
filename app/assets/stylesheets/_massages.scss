@@ -95,23 +95,24 @@
     padding:10px 0 40px;
   }
   &__input{
-    width: calc(100vw - 300px);
+    width: calc(100vw - 380px);
     position: absolute;
     bottom: 0;
     height: 90px;
     background-color: #ddd;
     line-height: 90px;
-    margin: 0 -40px;
+    margin: 0 -40px 0 300px;
     padding:0 40px;
     .type_a_message{
     z-index: 0;
     padding: 0 10px;
     height: 50px;
-    width: calc(100% - 220px);
+    width: calc(100% - 140px);
     }
-    .image{
+    .icon{
     position: absolute;
     left: calc(100vw - 490px);
+    bottom: 35px;
     z-index: 1;
     font-size: 1.3rem;
     }
@@ -120,7 +121,6 @@
     }
     .send{
     z-index: 0;
-    display: inline-block;
     padding: 0 30px;
     margin-left: 10px;
     height: 50px;
