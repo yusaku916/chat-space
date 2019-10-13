@@ -22,7 +22,7 @@
         .main__left__link__join_group
           = group.name
         .main__left__link__message
-          メッセージはまだありません
+          = group.show_last_message
   .main__right
     .main__right__chats
       = render @messages
