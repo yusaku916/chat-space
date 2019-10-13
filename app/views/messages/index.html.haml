@@ -22,20 +22,14 @@
         .main__left__link__join_group
           = group.name
         .main__left__link__message
-          メッセージはまだありません
-  .main__chat
-    .main__chat__send
-      .main__chat__send__user
-        送信者
-      .main__chat__send__date
-        2019/09/29(Sun) 15:47:54
-    .main__message
-      メッセージ
-    .main__input
-      %section.message
-      %form.message_form{action: ""}
-      %input.type_a_message{name: "message", placeholder: "type a message", type: "text"}/
-      %label.image
-        = fa_icon 'image', class: 'icon'
-        %input.file_form{type: 'file'}
-      %input.send{type: "submit", value: "Send"}/
+          = group.show_last_message
+  .main__right
+    .main__right__chats
+      = render @messages
+    .main__right__input
+      = form_for [@group, @message] do |f|
+        = f.text_field :content, class: 'type_a_message', placeholder: 'type a message'
+        = f.label :image do
+          = fa_icon 'image', class: 'icon'
+          = f.file_field :image, class: 'file_form'
+        = f.submit 'Send', class: 'send'
