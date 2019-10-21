@@ -7,14 +7,6 @@
     =link_to new_group_path, class: "header__icon" do
       = fa_icon 'edit'
       %span<>
-  .header__group
-    .header__group__name
-      グループ名
-    .header__group__member
-      Member:
-  .header__edit
-    =link_to "",  class: "header__edit__link" do
-      Edit
 .main
   .main__left
     - current_user.groups.each do |group|
