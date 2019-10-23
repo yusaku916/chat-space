@@ -44,7 +44,6 @@ $(document).on('turbolinks:load', function() {
     var id = $(this).data('user-id');
     var name = $(this).data('user-name');
     var html = $(this).parent();
-    console.log(html[0])
     $(html).remove();
     var html = `
           <div class='chat-group-user'>
