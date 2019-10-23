@@ -9,11 +9,13 @@
       %span<>
   .header__group
     .header__group__name
-      グループ名
+      = @group.name
     .header__group__member
-      Member:
+      Member: 
+      -@group.users.each do |user|
+        = user.name
   .header__edit
-    =link_to "",  class: "header__edit__link" do
+    =link_to edit_group_path(@group),  class: "header__edit__link" do
       Edit
 .main
   .main__left
