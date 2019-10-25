@@ -2,11 +2,6 @@ $(document).on('turbolinks:load', function() {
   function buildHTML(message) {
     var content = message.content ? `${ message.content }` : "";
     var img = message.image ? `<img src= ${ message.image }>` : "";
-
-    content_html = content.length == 0 ? "" : `${content}`
-
-    img_html = img.length == 0 ? "" : `${img}`
-
     var html = `<div class="chat" data-id="${message.id}">
                 <div class="chat__upper-chat">
                   <p class="chat__upper-chat__user">
@@ -17,9 +12,9 @@ $(document).on('turbolinks:load', function() {
                   </p>
                 </div>
                   <p class="chat__message">
-                  ${content_html}
+                  ${content}
                   </div>
-                  ${img_html}
+                  ${img}
                   </p>
                 </div>`
     return html;
