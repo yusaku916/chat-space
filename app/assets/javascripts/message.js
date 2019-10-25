@@ -3,16 +3,14 @@ $(document).on('turbolinks:load', function() {
     var content = message.content ? `${ message.content }` : "";
     var img = message.image ? `<img src= ${ message.image }>` : "";
     if (content.length){
-      var content_html = `${content}
-                           </div>`
+      var content_html = `${content}`
     }
     else {
       var content_html = ''
     }
 
     if (img.length){
-      var img_html = `${img}
-                      </p>`
+      var img_html = `${img}`
     }
     else {
       var img_html = ''
@@ -29,7 +27,9 @@ $(document).on('turbolinks:load', function() {
                 </div>
                   <p class="chat__message">
                   ${content_html}
+                  </div>
                   ${img_html}
+                  </p>
                 </div>`
     return html;
   };
