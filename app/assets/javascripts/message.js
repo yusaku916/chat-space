@@ -3,22 +3,22 @@ $(document).on('turbolinks:load', function() {
     var content = message.content ? `${ message.content }` : "";
     var img = message.image ? `<img src= ${ message.image }>` : "";
     var html = `<div class="chat" data-id="${message.id}">
-                  <div class="chat__upper-chat">
-                    <p class="chat__upper-chat__user">
-                      ${message.user_name}
-                    </p>
-                    <p class="chat__upper-chat__date">
-                      ${message.date}
-                    </p>
-                  </div>
+                <div class="chat__upper-chat">
+                  <p class="chat__upper-chat__user">
+                    ${message.user_name}
+                  </p>
+                  <p class="chat__upper-chat__date">
+                    ${message.date}
+                  </p>
+                </div>
                   <p class="chat__message">
-                    ${content}
-                    </div>
-                    ${img}
+                  ${content}
+                  </div>
+                  ${img}
                   </p>
                 </div>`
-  return html;
-  }
+    return html;
+  };
   $('#new_message').on('submit', function(e){
     e.preventDefault();
     var message = new FormData(this);
@@ -48,4 +48,32 @@ $(document).on('turbolinks:load', function() {
       $('.send').prop('disabled', false);
     })
   })
+    var reloadMessages = function() {
+      last_message_id = $('.chat:last').data("id")
+      $.ajax({
+        url: 'api/messages',
+        type: 'get',
+        dataType: 'json',
+        data: {id: last_message_id}
+      })
+      .done(function(messages) {
+        var insertHTML = '';
+        messages.forEach(function(message){
+          insertHTML = buildHTML(message);
+          $('.main__right__chats').append(insertHTML);
+        })
+        var target = $('.chat').last();
+        var position = target.offset().top + $('.main__right__chats').scrollTop();
+        $('.main__right__chats').animate({
+        scrollTop: position
+      }, 300, 'swing');
+      })
+      .fail(function() {
+        alert('自動更新に失敗しました');
+      });
+    }
+    
+  if (window.location.href.match(/\/groups\/\d+\/messages/)){
+  setInterval(reloadMessages, 5000);
+  };
 });
