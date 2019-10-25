@@ -2,51 +2,35 @@ $(document).on('turbolinks:load', function() {
   function buildHTML(message) {
     var content = message.content ? `${ message.content }` : "";
     var img = message.image ? `<img src= ${ message.image }>` : "";
-    if (content && img) {
-      var html = `<div class="chat" data-id="${message.id}">
-                    <div class="chat__upper-chat">
-                      <p class="chat__upper-chat__user">
-                        ${message.user_name}
-                      </p>
-                      <p class="chat__upper-chat__date">
-                        ${message.date}
-                      </p>
-                    </div>
-                    <p class="chat__message">
-                      ${content}
-                      </div>
-                      ${img}
-                    </p>
-                  </div>`
-    } else if (content) {
-      var html = `<div class="chat" data-id="${message.id}">
-      <div class="chat__upper-chat">
-        <p class="chat__upper-chat__user">
-          ${message.user_name}
-        </p>
-        <p class="chat__upper-chat__date">
-          ${message.date}
-        </p>
-      </div>
-      <p class="chat__message">
-        ${content}
-      </div>
-    </div>`
-    } else if (img) {
-      var html = `<div class="chat" data-id="${message.id}">
-      <div class="chat__upper-chat">
-        <p class="chat__upper-chat__user">
-          ${message.user_name}
-        </p>
-        <p class="chat__upper-chat__date">
-          ${message.date}
-        </p>
-      </div>
-      <p class="chat__message">
-        ${img}
-      </p>
-    </div>`
-    };
+    if (content.length){
+      var content_html = `${content}
+                           </div>`
+    }
+    else {
+      var content_html = ''
+    }
+
+    if (img.length){
+      var img_html = `${img}
+                      </p>`
+    }
+    else {
+      var img_html = ''
+    }
+
+    var html = `<div class="chat" data-id="${message.id}">
+                <div class="chat__upper-chat">
+                  <p class="chat__upper-chat__user">
+                    ${message.user_name}
+                  </p>
+                  <p class="chat__upper-chat__date">
+                    ${message.date}
+                  </p>
+                </div>
+                  <p class="chat__message">
+                  ${content_html}
+                  ${img_html}
+                </div>`
     return html;
   };
   $('#new_message').on('submit', function(e){
