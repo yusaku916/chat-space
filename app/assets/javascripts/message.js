@@ -2,19 +2,10 @@ $(document).on('turbolinks:load', function() {
   function buildHTML(message) {
     var content = message.content ? `${ message.content }` : "";
     var img = message.image ? `<img src= ${ message.image }>` : "";
-    if (content.length){
-      var content_html = `${content}`
-    }
-    else {
-      var content_html = ''
-    }
 
-    if (img.length){
-      var img_html = `${img}`
-    }
-    else {
-      var img_html = ''
-    }
+    content_html = content.length == 0 ? "" : `${content}`
+
+    img_html = img.length == 0 ? "" : `${img}`
 
     var html = `<div class="chat" data-id="${message.id}">
                 <div class="chat__upper-chat">
