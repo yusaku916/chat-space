@@ -49,28 +49,28 @@ $(document).on('turbolinks:load', function() {
       $('.send').prop('disabled', false);
     })
   })
-  // if (window.location.href.match(/\/groups\/\d+\/messages/)){
-  //   var reloadMessages = function() {
-  //     last_message_id = $('.chat:last').data("id")
-  //     $.ajax({
-  //       url: 'api/messages',
-  //       type: 'get',
-  //       dataType: 'json',
-  //       data: {id: last_message_id}
-  //     })
-  //     .done(function(messages) {
-  //       var insertHTML = '';
-  //       messages.forEach(function(message){
-  //         insertHTML = buildHTML(message);
-  //         $('.main__right__chats').append(insertHTML);
-  //       })
-  //       var target = $('.chat').last();
-  //       $('.main__right__chats').animate({scrollTop: $(".main__right__chats")[0].scrollHeight}, "fast");
-  //     })
-  //     .fail(function() {
-  //       alert('自動更新に失敗しました');
-  //     });
-  //   }
-  // //setInterval(reloadMessages, 5000);
-  // };
+  if (window.location.href.match(/\/groups\/\d+\/messages/)){
+    var reloadMessages = function() {
+      last_message_id = $('.chat:last').data("id")
+      $.ajax({
+        url: 'api/messages',
+        type: 'get',
+        dataType: 'json',
+        data: {id: last_message_id}
+      })
+      .done(function(messages) {
+        var insertHTML = '';
+        messages.forEach(function(message){
+          insertHTML = buildHTML(message);
+          $('.main__right__chats').append(insertHTML);
+        })
+        var target = $('.chat').last();
+        $('.main__right__chats').animate({scrollTop: $(".main__right__chats")[0].scrollHeight}, "fast");
+      })
+      .fail(function() {
+        alert('自動更新に失敗しました');
+      });
+    }
+  setInterval(reloadMessages, 5000);
+  };
 });
