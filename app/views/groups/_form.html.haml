@@ -23,12 +23,13 @@
     .chat-group-form__field--right  
       #chat-group-users.js-add-user
         .chat-group-user.clearfix.js-chat-member#chat-group-user-8
-          = f.hidden_field 'group[user_ids][]', value: current_user.id
+          = f.hidden_field 'group[user_ids][]', value: "#{current_user.id}"
           %p.chat-group-user__name= current_user.name
         .chat-group-user
         -@group.users.each do |user|
           -if current_user != user
             .chat-group-user
+              = f.hidden_field 'group[user_ids][]', value: "#{user.id}"
               %p.chat-group-user__name= user.name
               .user-search-remove.chat-group-user__btn.chat-group-user__btn--remove.js-remove-btn 削除
 
