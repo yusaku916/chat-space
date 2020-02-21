@@ -17,4 +17,4 @@
 .byebug_history
 
 uploads/
-config/secrets.yml
+# config/secrets.yml
